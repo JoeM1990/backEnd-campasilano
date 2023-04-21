@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class events {
+public class Events {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
