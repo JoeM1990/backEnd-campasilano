@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.monkilatech.backendcampasilano.model.Student;
+import com.monkilatech.backendcampasilano.model.User;
 
 @Repository
-public interface StudentRepo extends JpaRepository<Student, Long> {
-    @Query("FROM student s WHERE s.id=:studentId")
-    public Student getStudentById(@Param("studentId") long studentId);
+public interface UserRepo extends JpaRepository<User, Long> {
+    @Query("FROM users s WHERE s.id=:userId")
+    public User getUserById(@Param("userId") long userId);
 }
