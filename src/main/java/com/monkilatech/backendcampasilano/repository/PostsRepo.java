@@ -10,6 +10,6 @@ import com.monkilatech.backendcampasilano.model.Posts;
 @Repository
 public interface PostsRepo extends JpaRepository<Posts, Long> {
     @Query("FROM posts s WHERE s.id=:postsId")
-    public Posts getpostById(@Param("postsId") long postsId);
+    public Posts getPostById(@Param("postsId") long postsId);
 
 }
