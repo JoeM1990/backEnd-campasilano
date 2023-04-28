@@ -11,6 +11,6 @@ import com.monkilatech.backendcampasilano.model.Demandes;
 public interface DemandesRepo extends JpaRepository<Demandes, Long> {
 
     @Query("FROM demandes s WHERE s.id=:demandeId")
-    public Demandes getdemandeById(@Param("demandeId") long demandeId);
+    public Demandes getDemandeById(@Param("demandeId") long demandeId);
 
 }

@@ -25,7 +25,7 @@ public class DemandeServiceImpl implements DemandeService {
     @Override
     public Demandes get(long demandeId) throws Exception {
 
-        return this.demandesRepo.getdemandeById(demandeId);
+        return this.demandesRepo.getDemandeById(demandeId);
     }
 
     @Override
@@ -43,13 +43,13 @@ public class DemandeServiceImpl implements DemandeService {
     @Override
     public boolean delete(long demandeId) throws Exception {
 
-        Demandes demandes = this.demandesRepo.getdemandeById(demandeId);
+        Demandes demandes = this.demandesRepo.getDemandeById(demandeId);
         if (demandes == null)
             throw new ValueException("Aucune demande n'est trouvé avec l'id " + demandeId);
 
         this.demandesRepo.delete(demandes);
 
-        Demandes demandesCheckOut = this.demandesRepo.getdemandeById(demandeId);
+        Demandes demandesCheckOut = this.demandesRepo.getDemandeById(demandeId);
 
         if (demandesCheckOut != null)
             return true;
