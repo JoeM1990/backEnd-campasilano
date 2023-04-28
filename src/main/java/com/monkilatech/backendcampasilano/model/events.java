@@ -13,44 +13,43 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "events")
 public class Events {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "name")
     String name;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "description")
     String description;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "content")
     String content;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "cover")
     String cover;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "dateOfEvent")
     Date dateOfEvent;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "isPublic")
     boolean isPublic;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "etablissementId")
     String etablissementId;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "etablissement")
     String etablissement;
 
-    @JsonInclude(Include.NON_EMPTY)
-    List<String> participants;
+    @Column(name = "participants")
+    String participants;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "counts")
     int counts;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "status")
     boolean status;
 }

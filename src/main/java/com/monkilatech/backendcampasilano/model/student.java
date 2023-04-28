@@ -10,68 +10,67 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "student")
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "uid")
     String uid;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "matricule")
     String matricule;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "name")
     String name;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "firstname")
     String firstname;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "genre")
     int genre;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "phone")
     String phone;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "email")
     String email;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "username")
     String username;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "password")
     String password;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "locationId")
     String locationId;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "street")
     String street;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "commonId")
     String commonId;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "promotionId")
     int promotionId;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "promotion")
     String promotion;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "accountId")
     String accountId;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "photo")
     String photo;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "status")
     boolean status;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "etablissementId")
     String etablissementId;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "cps")
     String cps;
 }

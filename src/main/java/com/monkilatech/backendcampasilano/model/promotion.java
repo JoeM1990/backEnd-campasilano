@@ -12,26 +12,25 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "promotion")
 public class Promotion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "name")
     String name;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "validation")
     int validation;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "status")
     boolean status;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "etablissementId")
     int etablissementId;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "dateCreation")
     Date dateCreation;
 }

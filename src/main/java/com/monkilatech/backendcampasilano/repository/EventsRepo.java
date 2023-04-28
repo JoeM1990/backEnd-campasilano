@@ -5,12 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.monkilatech.backendcampasilano.model.Agents;
+import com.monkilatech.backendcampasilano.model.Events;
 
 @Repository
-public interface AgentsRepo extends JpaRepository<Agents, Long> {
+public interface EventsRepo extends JpaRepository<Events, Long> {
 
-    @Query("FROM agents s WHERE s.id=:agentId")
-    public Agents getAgentById(@Param("agentId") long agentId);
+    @Query("FROM events s WHERE s.id=:eventsId")
+    public Events getEtablissementById(@Param("eventsId") long eventsId);
 
 }

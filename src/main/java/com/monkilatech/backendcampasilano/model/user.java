@@ -12,38 +12,37 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "name")
     String name;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "phone")
     String phone;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "email")
     String email;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "username")
     String username;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "photo")
     String photo;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "etablissement")
     int etablissement;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "promotion")
     int promotion;
 
-    @JsonInclude(Include.NON_EMPTY)
-    List<String> roles;
+    @Column(name = "roles")
+    String roles;
 
-    @JsonInclude(Include.NON_EMPTY)
+    @Column(name = "token")
     String token;
 }
