@@ -44,7 +44,7 @@ public class PostsServiceImpl implements PostsService {
 
         Posts posts = this.postsRepo.getPostById(postsId);
         if (posts == null)
-            throw new ValueException("Aucun Posts n'est trouvé avec l'id " + postsId);
+            throw new ValueException("Aucun Post n'est trouvé avec l'id " + postsId);
 
         this.postsRepo.delete(posts);
 

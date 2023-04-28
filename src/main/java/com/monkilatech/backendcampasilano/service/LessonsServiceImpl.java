@@ -44,7 +44,7 @@ public class LessonsServiceImpl implements LessonsService {
 
         Lessons lessons = this.lessonsRepo.getLessonsById(lessonsId);
         if (lessons == null)
-            throw new ValueException("Aucun Lessons n'est trouvé avec l'id " + lessonsId);
+            throw new ValueException("Aucune Lesson n'est trouvé avec l'id " + lessonsId);
 
         this.lessonsRepo.delete(lessons);
 

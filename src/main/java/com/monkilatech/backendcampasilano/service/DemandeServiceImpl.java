@@ -45,7 +45,7 @@ public class DemandeServiceImpl implements DemandeService {
 
         Demandes demandes = this.demandesRepo.getDemandeById(demandeId);
         if (demandes == null)
-            throw new ValueException("Aucune demande n'est trouvé avec l'id " + demandeId);
+            throw new ValueException("Aucune Demande n'est trouvé avec l'id " + demandeId);
 
         this.demandesRepo.delete(demandes);
 

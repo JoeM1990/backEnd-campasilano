@@ -45,7 +45,7 @@ public class EventsServiceImpl implements EventsService {
 
         Events events = this.eventsRepo.getEventsById(eventsId);
         if (events == null)
-            throw new ValueException("Aucun Events n'est trouvé avec l'id " + eventsId);
+            throw new ValueException("Aucun Event n'est trouvé avec l'id " + eventsId);
 
         this.eventsRepo.delete(events);
 
