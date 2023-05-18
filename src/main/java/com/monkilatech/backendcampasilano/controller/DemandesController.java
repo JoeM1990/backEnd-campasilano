@@ -79,6 +79,21 @@ public class DemandesController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
     }
 
+    @GetMapping("/event/mobile/myEvents/{pageNo}/{pageSize}")
+    public ResponseEntity getMyDemande(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Demandes> demandes = this.demandeService.getMyDemande(pageNo, pageSize);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(demandes);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
     @PostMapping("demande/mobile/demande/{fromUid}/{senderUid}")
     public ResponseEntity getDemandeChats(@PathVariable("fromUid") long fromUid,
             @PathVariable("senderUid") long senderUid) {

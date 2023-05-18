@@ -111,10 +111,10 @@ public class EventsController {
     public ResponseEntity getMyEvent(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
         StatusResponse statusResponse = new StatusResponse();
         try {
-            List<Events> Posts = this.eventsService.getEventMobile(pageNo, pageSize);
+            List<Events> events = this.eventsService.getEventMobile(pageNo, pageSize);
 
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(Posts);
+                    .body(events);
         } catch (Exception e) {
             statusResponse.setStatus("Erreur interne");
             e.printStackTrace();

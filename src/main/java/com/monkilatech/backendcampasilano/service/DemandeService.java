@@ -12,6 +12,8 @@ public interface DemandeService {
 
     public Demandes getDemandeChats(long fromUid, long senderUid) throws Exception;
 
+    public List<Demandes> getMyDemande(long pageNo, long pageSize) throws Exception;
+
     public Demandes create(Demandes demandes) throws Exception;
 
     public Demandes update(Demandes demandes) throws Exception;
