@@ -9,6 +9,8 @@ public interface EventsService {
 
     public Events get(long agentId) throws Exception;
 
+    public List<Events> getEventMobile(long pageNo, long pageSize) throws Exception;
+
     public Events create(Events Events) throws Exception;
 
     public Events update(Events Events) throws Exception;

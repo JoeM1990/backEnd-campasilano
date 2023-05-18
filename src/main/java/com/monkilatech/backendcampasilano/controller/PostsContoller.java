@@ -77,6 +77,36 @@ public class PostsContoller {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
     }
 
+    @GetMapping("/posts/mobile/posts/{pageNo}/{pageSize}")
+    public ResponseEntity getPostMobile(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Posts> Posts = this.postsService.getPostMobile(pageNo, pageSize);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(Posts);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
+    @GetMapping("/posts/mobile/valves/{pageNo}/{pageSize}")
+    public ResponseEntity getPostValves(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Posts> Posts = this.postsService.getPostMobile(pageNo, pageSize);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(Posts);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
     @DeleteMapping("/posts/{postsId}")
     public ResponseEntity delete(@PathVariable("postsId") long postsId) {
 

@@ -9,7 +9,7 @@ public interface PostsService {
 
     public Posts get(long postsId) throws Exception;
 
-    public Posts getPostMobile(long pageNo, long pageSize) throws Exception;
+    public List<Posts> getPostMobile(long pageNo, long pageSize) throws Exception;
 
     public Posts create(Posts Lessons) throws Exception;
 

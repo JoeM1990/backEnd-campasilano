@@ -77,6 +77,36 @@ public class EventsController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
     }
 
+    @GetMapping("/event/mobile/participer/{eventsId}")
+    public ResponseEntity participerEvent(@PathVariable("eventsId") long eventsId) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            Events events = this.eventsService.get(eventsId);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(events);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
+    @GetMapping("/event/mobile/events/{pageNo}/{pageSize}")
+    public ResponseEntity getPostValves(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Events> Posts = this.eventsService.getEventMobile(pageNo, pageSize);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(Posts);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
     @DeleteMapping("/events/{eventsId}")
     public ResponseEntity delete(@PathVariable("eventsId") long eventsId) {
 

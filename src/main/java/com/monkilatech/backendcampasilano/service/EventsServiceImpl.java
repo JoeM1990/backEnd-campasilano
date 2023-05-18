@@ -1,8 +1,11 @@
 package com.monkilatech.backendcampasilano.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.monkilatech.backendcampasilano.model.Events;
@@ -26,6 +29,24 @@ public class EventsServiceImpl implements EventsService {
     public Events get(long eventsId) throws Exception {
 
         return this.eventsRepo.getEventsById(eventsId);
+    }
+
+    @Override
+    public List<Events> getEventMobile(long pageNo, long pageSize) throws Exception {
+
+        int pgNo = (int) pageNo;
+        int pgSize = (int) pageSize;
+
+        PageRequest firstPageWithTwoElements = PageRequest.of(pgNo, pgSize);
+
+        Page<Events> pagedResult = eventsRepo.findAll(firstPageWithTwoElements);
+
+        if (pagedResult.hasContent()) {
+            return pagedResult.getContent();
+        } else {
+            return new ArrayList<Events>();
+        }
+
     }
 
     @Override
