@@ -66,10 +66,25 @@ public class LessonsController {
     public ResponseEntity get(@PathVariable("lessonsId") long lessonsId) {
         StatusResponse statusResponse = new StatusResponse();
         try {
-            Lessons Lessons = this.lessonsService.get(lessonsId);
+            Lessons lessons = this.lessonsService.get(lessonsId);
 
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(Lessons);
+                    .body(lessons);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
+    @GetMapping("/lesson/mobile/lessons/{pageNo}/{pageSize}")
+    public ResponseEntity getLesson(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Lessons> lesson = this.lessonsService.getLessonMobile(pageNo, pageSize);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(lesson);
         } catch (Exception e) {
             statusResponse.setStatus("Erreur interne");
             e.printStackTrace();

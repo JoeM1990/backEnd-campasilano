@@ -66,10 +66,10 @@ public class PostsContoller {
     public ResponseEntity get(@PathVariable("postsId") long postsId) {
         StatusResponse statusResponse = new StatusResponse();
         try {
-            Posts Posts = this.postsService.get(postsId);
+            Posts posts = this.postsService.get(postsId);
 
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(Posts);
+                    .body(posts);
         } catch (Exception e) {
             statusResponse.setStatus("Erreur interne");
             e.printStackTrace();
@@ -81,10 +81,10 @@ public class PostsContoller {
     public ResponseEntity getPostMobile(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
         StatusResponse statusResponse = new StatusResponse();
         try {
-            List<Posts> Posts = this.postsService.getPostMobile(pageNo, pageSize);
+            List<Posts> posts = this.postsService.getPostMobile(pageNo, pageSize);
 
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(Posts);
+                    .body(posts);
         } catch (Exception e) {
             statusResponse.setStatus("Erreur interne");
             e.printStackTrace();
@@ -96,10 +96,10 @@ public class PostsContoller {
     public ResponseEntity getPostValves(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
         StatusResponse statusResponse = new StatusResponse();
         try {
-            List<Posts> Posts = this.postsService.getPostMobile(pageNo, pageSize);
+            List<Posts> posts = this.postsService.getPostMobile(pageNo, pageSize);
 
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(Posts);
+                    .body(posts);
         } catch (Exception e) {
             statusResponse.setStatus("Erreur interne");
             e.printStackTrace();

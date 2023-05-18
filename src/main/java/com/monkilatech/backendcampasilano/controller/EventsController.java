@@ -93,7 +93,22 @@ public class EventsController {
     }
 
     @GetMapping("/event/mobile/events/{pageNo}/{pageSize}")
-    public ResponseEntity getPostValves(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
+    public ResponseEntity getEventValves(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Events> Posts = this.eventsService.getEventMobile(pageNo, pageSize);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(Posts);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
+    @GetMapping("/event/mobile/myEvents/{pageNo}/{pageSize}")
+    public ResponseEntity getMyEvent(@PathVariable("pageNo") long pageNo, @PathVariable("pageSize") long pageSize) {
         StatusResponse statusResponse = new StatusResponse();
         try {
             List<Events> Posts = this.eventsService.getEventMobile(pageNo, pageSize);

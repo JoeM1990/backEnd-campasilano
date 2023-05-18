@@ -1,8 +1,11 @@
 package com.monkilatech.backendcampasilano.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.monkilatech.backendcampasilano.model.Lessons;
@@ -25,6 +28,24 @@ public class LessonsServiceImpl implements LessonsService {
     public Lessons get(long lessonsId) throws Exception {
 
         return this.lessonsRepo.getLessonsById(lessonsId);
+    }
+
+    @Override
+    public List<Lessons> getLessonMobile(long pageNo, long pageSize) throws Exception {
+
+        int pgNo = (int) pageNo;
+        int pgSize = (int) pageSize;
+
+        PageRequest firstPageWithTwoElements = PageRequest.of(pgNo, pgSize);
+
+        Page<Lessons> pagedResult = lessonsRepo.findAll(firstPageWithTwoElements);
+
+        if (pagedResult.hasContent()) {
+            return pagedResult.getContent();
+        } else {
+            return new ArrayList<Lessons>();
+        }
+
     }
 
     @Override

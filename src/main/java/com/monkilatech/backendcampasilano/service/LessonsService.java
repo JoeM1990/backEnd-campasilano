@@ -9,6 +9,8 @@ public interface LessonsService {
 
     public Lessons get(long lessonsId) throws Exception;
 
+    public List<Lessons> getLessonMobile(long pageNo, long pageSize) throws Exception;
+
     public Lessons create(Lessons Lessons) throws Exception;
 
     public Lessons update(Lessons Lessons) throws Exception;
