@@ -10,6 +10,8 @@ public interface DemandeService {
 
     public Demandes get(long demandeId) throws Exception;
 
+    public Demandes getDemandeChats(long fromUid, long senderUid) throws Exception;
+
     public Demandes create(Demandes demandes) throws Exception;
 
     public Demandes update(Demandes demandes) throws Exception;

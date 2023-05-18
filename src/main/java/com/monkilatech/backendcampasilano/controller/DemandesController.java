@@ -33,6 +33,7 @@ public class DemandesController {
 
         try {
             Demandes demandeCreated = this.demandeService.create(demandes);
+
             if (demandeCreated != null) {
                 return ResponseEntity.status(HttpStatus.OK).body(demandeCreated);
             } else
@@ -68,6 +69,22 @@ public class DemandesController {
         StatusResponse statusResponse = new StatusResponse();
         try {
             Demandes demandes = this.demandeService.get(demandeId);
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(demandes);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
+    @PostMapping("demande/mobile/demande/{fromUid}/{senderUid}")
+    public ResponseEntity getDemandeChats(@PathVariable("fromUid") long fromUid,
+            @PathVariable("senderUid") long senderUid) {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            Demandes demandes = this.demandeService.getDemandeChats(fromUid, senderUid);
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(demandes);

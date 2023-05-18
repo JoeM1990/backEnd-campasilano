@@ -29,6 +29,12 @@ public class DemandeServiceImpl implements DemandeService {
     }
 
     @Override
+    public Demandes getDemandeChats(long fromUid, long senderUid) throws Exception {
+
+        return this.demandesRepo.getDemandeChats(fromUid, senderUid);
+    }
+
+    @Override
     public Demandes create(Demandes demandes) throws Exception {
 
         return this.demandesRepo.save(demandes);

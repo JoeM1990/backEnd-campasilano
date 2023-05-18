@@ -77,6 +77,21 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
     }
 
+    @GetMapping("/coordination/mobile/coordinations")
+    public ResponseEntity getCordination() {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Student> student = this.studentService.getAll();
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(student);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
     @DeleteMapping("/student/{studentId}")
     public ResponseEntity delete(@PathVariable("studentId") long studentId) {
 

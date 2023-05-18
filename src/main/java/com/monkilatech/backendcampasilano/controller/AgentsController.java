@@ -63,6 +63,21 @@ public class AgentsController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
     }
 
+    @GetMapping("/agent/mobile/authorites")
+    public ResponseEntity getAllMobile() {
+        StatusResponse statusResponse = new StatusResponse();
+        try {
+            List<Agents> agents = this.agentService.getAll();
+
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(agents);
+        } catch (Exception e) {
+            statusResponse.setStatus("Erreur interne");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(statusResponse);
+    }
+
     @GetMapping("/agents/{agentId}")
     public ResponseEntity get(@PathVariable("agentId") long agentId) {
         StatusResponse statusResponse = new StatusResponse();
