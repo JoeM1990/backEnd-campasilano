@@ -115,11 +115,12 @@ public class DemandesController {
         // /{fromUid}/{senderUid}
 
         // @PathVariable("fromUid") long fromUid,
-        //     @PathVariable("senderUid") long senderUid
+        // @PathVariable("senderUid") long senderUid
 
         StatusResponse statusResponse = new StatusResponse();
         try {
-            Demandes demandes = this.demandeService.getDemandeChats(demandes.getFromUid(), demandes.getSenderUid());
+            Demandes demandes = this.demandeService.getDemandeChats(Long.parseLong(demandes.getFromUid()),
+                    Long.parseLong(demandes.getSenderUid()));
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(demandes);
