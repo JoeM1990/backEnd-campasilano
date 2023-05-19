@@ -110,7 +110,7 @@ public class DemandesController {
     }
 
     @PostMapping("demande/mobile/demande")
-    public ResponseEntity getDemandeChats(@RequestBody Demandes demandes) {
+    public ResponseEntity getDemandeChats(@RequestBody Demandes demandesT) {
 
         // /{fromUid}/{senderUid}
 
@@ -119,8 +119,8 @@ public class DemandesController {
 
         StatusResponse statusResponse = new StatusResponse();
         try {
-            Demandes demandes = this.demandeService.getDemandeChats(Long.parseLong(demandes.getFromUid()),
-                    Long.parseLong(demandes.getSenderUid()));
+            Demandes demandes = this.demandeService.getDemandeChats(Long.parseLong(demandesT.getFromUid()),
+                    Long.parseLong(demandesT.getSenderUid()));
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(demandes);
