@@ -119,8 +119,8 @@ public class DemandesController {
 
         StatusResponse statusResponse = new StatusResponse();
         try {
-            Demandes demandes = this.demandeService.getDemandeChats(Long.parseLong(demandesT.getFromUid()),
-                    Long.parseLong(demandesT.getSenderUid()));
+            Demandes demandes = this.demandeService.getDemandeChats(demandesT.getFromUid(),
+                    demandesT.getSenderUid(), demandesT.getContent());
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(demandes);

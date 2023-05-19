@@ -10,7 +10,7 @@ public interface DemandeService {
 
     public Demandes get(long demandeId) throws Exception;
 
-    public Demandes getDemandeChats(long fromUid, long senderUid) throws Exception;
+    public Demandes getDemandeChats(String fromUid, String senderUid, String content) throws Exception;
 
     public List<Demandes> getMyDemande(long pageNo, long pageSize) throws Exception;
 

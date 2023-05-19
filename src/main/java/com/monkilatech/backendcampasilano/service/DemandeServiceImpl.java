@@ -32,9 +32,9 @@ public class DemandeServiceImpl implements DemandeService {
     }
 
     @Override
-    public Demandes getDemandeChats(long fromUid, long senderUid) throws Exception {
+    public Demandes getDemandeChats(String fromUid, String senderUid, String content) throws Exception {
 
-        return this.demandesRepo.getDemandeChats(fromUid, senderUid);
+        return this.demandesRepo.getDemandeChats(fromUid, senderUid, content);
     }
 
     @Override
