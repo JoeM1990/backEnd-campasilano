@@ -10,7 +10,7 @@ import com.monkilatech.backendcampasilano.model.Events;
 @Repository
 public interface EventsRepo extends JpaRepository<Events, Long> {
 
-    @Query("FROM events s WHERE s.id=:eventsId")
+    @Query("FROM Events e WHERE e.id=:eventsId")
     public Events getEventsById(@Param("eventsId") long eventsId);
 
 }
