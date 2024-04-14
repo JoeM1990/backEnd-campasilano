@@ -13,7 +13,7 @@ public interface DemandesRepo extends JpaRepository<Demandes, Long> {
     @Query("FROM Demandes d WHERE d.id=:demandeId")
     public Demandes getDemandeById(@Param("demandeId") long demandeId);
 
-    @Query("FROM demandes s WHERE s.fromUid=:fromUid AND s.senderUid=:senderUid AND s.content=:content")
+    @Query("FROM Demandes d WHERE d.fromUid=:fromUid AND d.senderUid=:senderUid AND d.content=:content")
     public Demandes getDemandeChats(@Param("fromUid") String fromUid, @Param("senderUid") String senderUid,
             @Param("content") String content);
 
