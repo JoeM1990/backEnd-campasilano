@@ -10,7 +10,7 @@ import com.monkilatech.backendcampasilano.model.Etablissement;
 @Repository
 public interface EtablissementRepo extends JpaRepository<Etablissement, Long> {
 
-    @Query("FROM etablissement s WHERE s.id=:etablissementId")
+    @Query("FROM Etablissement e WHERE e.id=:etablissementId")
     public Etablissement getEtablissementById(@Param("etablissementId") long etablissementId);
 
 }
