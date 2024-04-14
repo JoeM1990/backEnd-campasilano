@@ -9,6 +9,6 @@ import com.monkilatech.backendcampasilano.model.Lessons;
 
 @Repository
 public interface LessonsRepo extends JpaRepository<Lessons, Long> {
-    @Query("FROM lessons s WHERE s.id=:lessonsId")
+    @Query("FROM Lessons l WHERE l.id=:lessonsId")
     public Lessons getLessonsById(@Param("lessonsId") long lessonsId);
 }
