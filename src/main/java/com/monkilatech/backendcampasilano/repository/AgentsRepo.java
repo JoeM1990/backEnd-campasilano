@@ -10,7 +10,7 @@ import com.monkilatech.backendcampasilano.model.Agents;
 @Repository
 public interface AgentsRepo extends JpaRepository<Agents, Long> {
 
-    @Query("FROM agents s WHERE s.id=:agentId")
+    @Query("FROM Agents a WHERE a.id=:agentId")
     public Agents getAgentById(@Param("agentId") long agentId);
 
 }
