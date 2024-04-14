@@ -9,6 +9,6 @@ import com.monkilatech.backendcampasilano.model.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
-    @Query("FROM users s WHERE s.id=:userId")
+    @Query("FROM Users u WHERE u.id=:userId")
     public User getUserById(@Param("userId") long userId);
 }
