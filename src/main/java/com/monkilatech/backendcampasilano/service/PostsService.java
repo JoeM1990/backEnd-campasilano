@@ -5,6 +5,7 @@ import java.util.List;
 import com.monkilatech.backendcampasilano.model.Posts;
 
 public interface PostsService {
+    
     public List<Posts> getAll() throws Exception;
 
     public Posts get(long postsId) throws Exception;
@@ -16,4 +17,5 @@ public interface PostsService {
     public Posts update(Posts Lessons) throws Exception;
 
     public boolean delete(long postsId) throws Exception;
+    
 }
