@@ -5,6 +5,7 @@ import java.util.List;
 import com.monkilatech.backendcampasilano.model.Student;
 
 public interface StudentService {
+    
     public List<Student> getAll() throws Exception;
 
     public Student get(long studentId) throws Exception;
@@ -14,4 +15,5 @@ public interface StudentService {
     public Student update(Student student) throws Exception;
 
     public boolean delete(long studentId) throws Exception;
+    
 }
