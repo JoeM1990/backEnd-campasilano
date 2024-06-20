@@ -9,6 +9,8 @@ import com.monkilatech.backendcampasilano.model.Student;
 
 @Repository
 public interface StudentRepo extends JpaRepository<Student, Long> {
+    
     @Query("FROM Student s WHERE s.id=:studentId")
     public Student getStudentById(@Param("studentId") long studentId);
+    
 }
