@@ -9,6 +9,8 @@ import com.monkilatech.backendcampasilano.model.Promotion;
 
 @Repository
 public interface PromotionRepo extends JpaRepository<Promotion, Long> {
+    
     @Query("FROM Promotion p WHERE p.id=:promotionId")
     public Promotion getPromotionById(@Param("promotionId") long promotionId);
+    
 }
